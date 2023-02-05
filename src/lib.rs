@@ -234,7 +234,9 @@ impl Canvas2D {
     #[inline]
     #[allow(clippy::missing_panics_doc)]
     pub fn get_texture(&self) -> &Texture2D {
-        &self.render_target.as_ref().unwrap().texture
+        let texture = &self.render_target.as_ref().unwrap().texture;
+        texture.set_filter(FilterMode::Nearest);
+        texture
     }
 
     /// Returns a mutable reference to the canvas texture.
