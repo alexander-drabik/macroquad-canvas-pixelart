@@ -216,7 +216,7 @@ impl Canvas2D {
     // Returns mouse position on the canvas moved by target value
     #[inline]
     pub fn mouse_position_target(&self) -> (f32, f32) {
-        (self.mouse_position().0 - self.target.x, self.mouse_position().1 - self.target.y)
+        (self.mouse_position().0 + self.target.x - screen_width()/2.0, self.mouse_position().1 + self.target.y - screen_height()/2.0)
     }
 
     /// Returns mouse position with target width/height.
