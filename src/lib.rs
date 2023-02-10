@@ -170,7 +170,7 @@ impl Canvas2D {
         // Flip vertically
         camera.zoom.y = -camera.zoom.y;
 
-        Self { camera, color: color_u8!(255, 255, 255, 255) }
+        Self { camera, color: WHITE }
     }
 
     /// Draws canvas to the screen.
