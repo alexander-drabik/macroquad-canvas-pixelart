@@ -145,6 +145,7 @@ use std::ops::{Deref, DerefMut};
 pub struct Canvas2D {
     /// The wrapped `Camera2D` necessary for all the calculations
     pub camera: Camera2D,
+    pub color: Color
 }
 
 impl Deref for Canvas2D {
@@ -169,7 +170,7 @@ impl Canvas2D {
         // Flip vertically
         camera.zoom.y = -camera.zoom.y;
 
-        Self { camera }
+        Self { camera, color: color_u8!(255, 255, 255, 255) }
     }
 
     /// Draws canvas to the screen.
@@ -187,7 +188,7 @@ impl Canvas2D {
             *self.get_texture(),
             left_padding,
             top_padding,
-            WHITE,
+            self.color,
             DrawTextureParams {
                 dest_size: Some(dimensions),
                 ..Default::default()
