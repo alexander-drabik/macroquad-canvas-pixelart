@@ -188,7 +188,7 @@ impl Canvas2D {
             *self.get_texture(),
             left_padding,
             top_padding,
-            self.color,
+            WHITE,
             DrawTextureParams {
                 dest_size: Some(dimensions),
                 ..Default::default()
